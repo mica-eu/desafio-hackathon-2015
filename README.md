@@ -8,5 +8,11 @@ com seus respectivos horários.
 ![alt text](https://github.com/micaelsouza/desafio-hackathon-2015/blob/master/dev/screenshot/cadastrar.png "Tela de cadastro")
 também pode consultar o as materias e editar 
 ![alt text](https://github.com/micaelsouza/desafio-hackathon-2015/blob/master/dev/screenshot/consultar.png "Tela de cadastro")
+#Startando o app
+cd app <br>
+npm install <br>
+node app.js
+
+
 
 
