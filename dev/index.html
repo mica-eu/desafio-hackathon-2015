@@ -25,7 +25,7 @@
             text-align: center;
             padding: 10px;
             overflow: hidden;
-            
+
         }
         #side-bar.out
         {
@@ -55,7 +55,7 @@
 
         #side-bar button
         {
-            margin-bottom: 10px; 
+            margin-bottom: 10px;
         }
 
         #side-bar div.item
@@ -86,7 +86,7 @@
                 }
                 $sideBar.removeClass('out');
                 $sideBar.addClass('active');
-            });          
+            });
         });
     </script>
 
@@ -100,6 +100,11 @@
         </div>
         <div class="row">
             <div class="col-xs-12 item">Agenda</div>
+            <% for (var i = 0; i < disciplinas.length; i++) {%>
+              <div>
+                <a href="/disciplina/view/?id=<%= disciplinas[i]._id %>"><%= disciplinas[i].titulo %></a>
+              </div>
+            <% } %>
         </div>
     </section>
 

@@ -89,10 +89,15 @@ app.get('/login', function(req, res) {
   });
 });
 
-app.get('/home', function(req, res) {
-  res.render('layout', {
-    user: req.user
+app.get('/home', ensureAuthenticated,function(req, res) {
+
+  Disciplina.find(function(err, doc) {
+    res.render('layout', {
+      user: req.user,
+      disciplinas: doc
+    });
   });
+
 });
 
 // GET /auth/facebook
@@ -155,7 +160,7 @@ app.get('/disciplina', ensureAuthenticated, function(req, res) {
 });
 
 app.get('/disciplina/new', ensureAuthenticated, function(req, res) {
-  res.render('disciplina_new');
+  res.render('create');
 });
 
 app.get('/disciplina/edit', ensureAuthenticated, function(req, res) {
@@ -169,19 +174,8 @@ app.get('/disciplina/edit', ensureAuthenticated, function(req, res) {
 
 app.get('/disciplina/add', ensureAuthenticated, function(req, res) {
   var disciplina = new Disciplina({
-    titulo: "História",
-    userId: req.user.id,
-    dias: [{
-      dia: 'segunda',
-      horaInicial: '7:00',
-      horaFinal: '8:00'
-    }],
-    materias: {
-      materia: "História Antiga",
-      dataInicial: "2015-04-10",
-      dataFinal: "2015-04-15",
-      status: false
-    }
+    titulo: req.query.titulo,
+    userId: req.user.id
   });
 
   disciplina.save(function(err) {
