@@ -126,15 +126,31 @@ app.get('/logout', function(req, res) {
 });
 
 // esquema de documento da disciplina
-var disciplinaSchema = new Schema({ titulo: String });
+// var disciplinaSchema = new Schema({ titulo: String });
+var disciplinaSchema = new Schema({
+  titulo: String,
+  userId: String,
+  dias: [{
+    dia: String,
+    horaInicial: String,
+    horaFinal: String
+  }],
+  materias: {
+    materia: String,
+    dataInicial: String,
+    dataFinal: String,
+    status: Boolean
+  }
+});
 // construtor do modelo de documento da Disciplina
 var Disciplina = mongoose.model('Disciplina', disciplinaSchema);
 
 app.get('/disciplina', ensureAuthenticated, function(req, res) {
   Disciplina.find(function(err, doc) {
-      if (err) return res.json({info: 'erro ao listar disciplinas!'});
-      // res.json(doc);
-      res.render('disciplina', {disciplinas: doc});
+    res.json(doc);
+    // res.render('disciplina', {
+    //   disciplinas: doc
+    // });
   });
 });
 
@@ -143,41 +159,80 @@ app.get('/disciplina/new', ensureAuthenticated, function(req, res) {
 });
 
 app.get('/disciplina/edit', ensureAuthenticated, function(req, res) {
-  Disciplina.findById({ _id: req.query.id}, function(err, doc) {
+  Disciplina.findById({
+    _id: req.query.id
+  }, function(err, doc) {
     if (err) return;
     res.render('disciplina_edit', doc);
   });
 });
 
 app.get('/disciplina/add', ensureAuthenticated, function(req, res) {
-  var disciplina = new Disciplina({titulo: req.query.titulo});
+  var disciplina = new Disciplina({
+    titulo: "História",
+    userId: req.user.id,
+    dias: [{
+      dia: 'segunda',
+      horaInicial: '7:00',
+      horaFinal: '8:00'
+    }],
+    materias: {
+      materia: "História Antiga",
+      dataInicial: "2015-04-10",
+      dataFinal: "2015-04-15",
+      status: false
+    }
+  });
 
   disciplina.save(function(err) {
-    if (err) return res.json({info: 'erro ao salvar disciplina!'});;
-    res.json({info: 'disciplina salva com sucesso!'});
+    if (err) return res.json({
+      info: 'erro ao salvar disciplina!'
+    });;
+    res.json({
+      info: 'disciplina salva com sucesso!'
+    });
   });
 });
 
 app.get('/disciplina/remove', ensureAuthenticated, function(req, res) {
   Disciplina.findByIdAndRemove(req.query.id, function(err) {
-    if (err) return res.json({info: 'erro ao remover disciplina!'});;
-    res.json({info: 'disciplina removida com sucesso!'});
+    if (err) return res.json({
+      info: 'erro ao remover disciplina!'
+    });;
+    res.json({
+      info: 'disciplina removida com sucesso!'
+    });
   });
 });
 
 app.get('/disciplina/update', ensureAuthenticated, function(req, res) {
-  Disciplina.findByIdAndUpdate(req.query.id, {titulo: req.query.titulo}, function(err) {
-    if (err) return res.json({info: 'erro ao atualizar disciplina!'});;
-    res.json({info: 'disciplina atualizada com sucesso!'});
+  Disciplina.findByIdAndUpdate(req.query.id, {
+    titulo: req.query.titulo
+  }, function(err) {
+    if (err) return res.json({
+      info: 'erro ao atualizar disciplina!'
+    });;
+    res.json({
+      info: 'disciplina atualizada com sucesso!'
+    });
   });
 });
 
 app.get('/disciplina/view', ensureAuthenticated, function(req, res) {
-  Disciplina.findById({ _id: req.query.id}, function(err, doc) {
-    if (err) res.json({info: 'erro ao visualizar disciplina!'});;
+  Disciplina.findById({
+    _id: req.query.id
+  }, function(err, doc) {
+    if (err) res.json({
+      info: 'erro ao visualizar disciplina!'
+    });;
     res.json(doc);
   });
 });
+
+// Materias
+// esquema de documento da disciplina
+// construtor do modelo de documento da Disciplina
+// var Disciplina = mongoose.model('Disciplina', disciplinaSchema);
 
 app.listen(3000);
 
