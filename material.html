@@ -1,193 +1,185 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-	<meta charset="UTF-8">
-	<meta name="viewport" content="width=device-width, user-scalable=no">
-	<title>Cadastro</title>
-	<!-- Latest compiled and minified CSS -->
-
-<link rel="stylesheet" href="node_modules/bootstrap/dist/css/bootstrap.css">
-<!-- Optional theme -->
-
-<link rel="stylesheet" href="node_modules/bootstrap/dist/css/bootstrap-theme.min.css">
-<script src="js/jquery.min.js"></script>
-<script src="js/moment-with-locales.js"></script>
-<script src="js/bootstrap-datetimepicker.js"></script>
-
-
-<style>
-	body{
-    position: absolute;
-    background-color: #fafbfb !important;
-    width: 100% !important;
-    height: 100% !important;
-  }
-	#materias:before{
-		position: relative;
-	  left: 15px;
-	  font-size: 12px;
-	  font-weight: 700;
-	  color: #959595;
-	  text-transform: uppercase;
-	  letter-spacing: 1px;
-	}
-
-  .form-horizontal{
-    max-width: 530px;
-    padding: 15px;
-    margin: 0 auto;
-    float: none !important;
-    border: 2px solid #CCC;
-    border-radius: 12px;
-  }
-
-  .hr {
-    padding: 0 !important;
-  }
-
-  #tabela{
-    overflow-y: auto;
-    height: 168px;
-  }
-
-  .centralizar{
-    position: relative;
-    top: 50%;
-    transform: translateY(-50%);
-  }
-
-  .padding10{
-    padding-left: 10px
-  }
-
-</style>
-<!-- Latest compiled and minified JavaScript -->
-</head>
-<script src="node_modules/bootstrap/dist/js/bootstrap.min.js"></script>
-<body>
-  <div class="container-fluid centralizar">
-    
-    <form class="form-horizontal">
-      <div class="container-fluid">
-    	<div class="form-group">
-        <label class="col-sm-2 control-label" for="formGroupInputSmall">Disciplina</label>
-        <div class="col-sm-8">
-          <select class="form-control">
-            <option></option>
-            <option value="Português">Português</option>
-            <option value="Matemática">Matemática</option>
-            <option value="Geográfia">Geográfia</option>
-            <option value="História">História</option>
-            <option value="Física">Física</option>
-            <option value="Química">Química</option>
-            <option value="Inglês">Inglês</option>
-            <option value="Espanhol">Espanhol</option>
-          </select>
-        </div>
-      </div>
-
-      <div class="form-group form-group">
-        <label class="col-sm-2 control-label" for="formGroupInputSmall">Matéria</label>
-        <div class="container col-sm-8">
-          <div class="input-group col-sm-12">
-          <input id="materia" class="form-control" for="formGroupInputSmall" type="text" placeholder="Ex: Fatoração">
-            <span class="input-group-btn">
-              <button id="addMateria" type="button" class="btn btn-primary">+</button> 
-            </span>
-          </div>              
-        </div>
-      </div>      
-      <div class="col-sm-6 form-group form-group col-sm-12">
-        <label class="col-sm-4 control-label hr control-label" for="formGroupInputSmall">Horário Inicial</label>
-            <div class='col-sm-8'>
-                    <div class='input-group date datetime'>
+   <head>
+      <meta charset="UTF-8">
+      <meta name="viewport" content="width=device-width, user-scalable=no">
+      <title>Cadastro</title>
+      <link rel="stylesheet" href="node_modules/bootstrap/dist/css/bootstrap.css">
+      <link rel="stylesheet" href="node_modules/bootstrap/dist/css/bootstrap-theme.min.css">
+      <script src="js/jquery.min.js"></script>
+      <script src="js/moment-with-locales.js"></script>
+      <script src="js/bootstrap-datetimepicker.js"></script>
+      <style>
+         body{
+         position: absolute;
+         background-color: #fafbfb !important;
+         width: 100% !important;
+         height: 100% !important;
+         }
+         #materias:before{
+         position: relative;
+         left: 15px;
+         font-size: 12px;
+         font-weight: 700;
+         color: #959595;
+         text-transform: uppercase;
+         letter-spacing: 1px;
+         }
+         .form-horizontal{
+         max-width: 530px;
+         padding: 15px;
+         margin: 0 auto;
+         float: none !important;
+         border: 2px solid #CCC;
+         border-radius: 12px;
+         }
+         .hr {
+         padding: 0 !important;
+         }
+         #tabela{
+         overflow-y: auto;
+         height: 168px;
+         }
+         .centralizar{
+         position: relative;
+         top: 50%;
+         transform: translateY(-50%);
+         }
+         .padding10{
+         padding-left: 10px
+         }
+         .titulo{
+          text-align: center !important;
+         }
+      </style>
+   </head>
+   <script src="node_modules/bootstrap/dist/js/bootstrap.min.js"></script>
+   <body>
+      <div class="container-fluid centralizar">
+         <form class="form-horizontal">
+            <div class="container-fluid">
+              <div class="form-group">
+                <label class="col-sm-12 control-label titulo" for="formGroupInputSmall"><h1>Cadastro</h1></label>
+              </div>
+               <div class="form-group">
+                  <label class="col-sm-2 control-label" for="formGroupInputSmall">Disciplina</label>
+                  <div class="col-sm-10">
+                     <select class="form-control">
+                        <option></option>
+                        <option value="Português">Português</option>
+                        <option value="Matemática">Matemática</option>
+                        <option value="Geográfia">Geográfia</option>
+                        <option value="História">História</option>
+                        <option value="Física">Física</option>
+                        <option value="Química">Química</option>
+                        <option value="Inglês">Inglês</option>
+                        <option value="Espanhol">Espanhol</option>
+                     </select>
+                  </div>
+               </div>
+               <div class="form-group form-group">
+                  <label class="col-sm-2 control-label" for="formGroupInputSmall">Matéria</label>
+                  <div class="container col-sm-10">
+                     <div class="input-group col-sm-12">
+                        <input id="materia" class="form-control" for="formGroupInputSmall" type="text" placeholder="Ex: Fatoração">
+                        <span class="input-group-btn">
+                        <button id="addMateria" type="button" class="btn btn-primary">+</button> 
+                        </span>
+                     </div>
+                  </div>
+               </div>
+               <div class="col-sm-6 form-group form-group col-sm-12">
+                  <label class="col-sm-4 control-label hr control-label" for="formGroupInputSmall">Horário Inicial</label>
+                  <div class='col-sm-8'>
+                     <div class='input-group date datetime'>
                         <input type='text' class="form-control" id="horaInicial" />
                         <span class="input-group-addon">
-                            <span class="glyphicon glyphicon-time"></span>
+                        <span class="glyphicon glyphicon-time"></span>
                         </span>
-                    </div>
-            </div>
-      </div>
-      <div class="col-sm-6 form-group form-group">
-        <label class="col-sm-4 control-label hr" for="formGroupInputSmall">Horário Final</label>
-            <div class='col-sm-8'>
-                    <div class='input-group date datetime'>
+                     </div>
+                  </div>
+               </div>
+               <div class="col-sm-6 form-group form-group">
+                  <label class="col-sm-4 control-label hr" for="formGroupInputSmall">Horário Final</label>
+                  <div class='col-sm-8'>
+                     <div class='input-group date datetime'>
                         <input type='text' class="form-control" id="horaFinal"/>
                         <span class="input-group-addon">
-                            <span class="glyphicon glyphicon-time"></span>
+                        <span class="glyphicon glyphicon-time"></span>
                         </span>
-                    </div>
+                     </div>
+                  </div>
+               </div>
+               <div class="form-group form-group">
+                  <label class="col-sm-2 control-label" for="formGroupInputSmall">Dias</label>
+                  <div class="btn-group col-sm-10" data-toggle="buttons">
+                     <label class="btn btn-primary">
+                     <input type="checkbox" autocomplete="off">SEG
+                     </label>
+                     <label class="btn btn-primary">
+                     <input type="checkbox" autocomplete="off">TER
+                     </label>
+                     <label class="btn btn-primary">
+                     <input type="checkbox" autocomplete="off">QUA
+                     </label>
+                     <label class="btn btn-primary">
+                     <input type="checkbox" autocomplete="off">QUI
+                     </label>
+                     <label class="btn btn-primary">
+                     <input type="checkbox" autocomplete="off">SEX
+                     </label>
+                     <label class="btn btn-primary">
+                     <input type="checkbox" autocomplete="off">SAB
+                     </label>
+                     <label class="btn btn-primary">
+                     <input type="checkbox" autocomplete="off">DOM
+                     </label>
+                  </div>
+               </div>
+               <div id="tabela" class="container col-md-12 form-group form-group">
+                  <table id="materias" class="table col-md-4 table-striped">
+                     <thead>
+                        <th>Matéria</th>
+                        <th>Hora Inicial</th>
+                        <th>Hora Final</th>
+                     </thead>
+                  </table>
+               </div>
+               <div class="col-sm-4 form-group form-group">
+                  <button id="cadastrar" type="button" class="btn btn-primary">Cadastrar</button>
+               </div>
             </div>
+         </form>
       </div>
-      <div class="btn-group col-sm-12" data-toggle="buttons">
-        <label class="btn btn-primary">
-          <input type="checkbox" autocomplete="off">SEG
-        </label>
-        <label class="btn btn-primary">
-          <input type="checkbox" autocomplete="off">TER
-        </label>
-        <label class="btn btn-primary">
-          <input type="checkbox" autocomplete="off">QUA
-        </label>
-        <label class="btn btn-primary">
-          <input type="checkbox" autocomplete="off">QUI
-        </label>
-        <label class="btn btn-primary">
-          <input type="checkbox" autocomplete="off">SEX
-        </label>
-        <label class="btn btn-primary">
-          <input type="checkbox" autocomplete="off">SAB
-        </label>
-        <label class="btn btn-primary">
-          <input type="checkbox" autocomplete="off">DOM
-        </label>
-      </div> 
-          <div id="tabela" class="container col-md-12 form-group form-group">
-        	   <table id="materias" class="table col-md-4 table-striped">
-              <thead>
-                <th>Matéria</th> 
-                <th>Hora Inicial</th>
-                <th>Hora Final</th>
-              </thead>
-             </table>
-         </div>
-         	
-      <div class="col-sm-4 form-group form-group">
-        <button id="cadastrar" type="button" class="btn btn-primary">Cadastrar</button>
-      </div>
-      </div>
-    </form>
-  </div>
-
-<script>
-  var Name = (function($) {
-    var $inputMateria = $('#materia'),
-      $btnAddMateria = $('#addMateria'),
-      $tableMaterias = $('#materias'),
-      $tdHoraInicial = $('#horaInicial'),
-      $tdHoraFinal = $('#horaFinal');
-
-    var addMateria = function() {
-      var td = '<td>'+$inputMateria.val()+'</td>' +
-               '<td>'+$tdHoraInicial.val()+'</td>' +
-               '<td>'+$tdHoraFinal.val()+'</td>';
-
-      $('<tr>')
-        .html(td)
-        .appendTo($tableMaterias);
-    }
-
-    return {
-      init: function() {
-        $btnAddMateria.on('click', addMateria)
-      }
-    }
-  })(jQuery);
-
-  $('.datetime').datetimepicker({
-    format: 'LT'
-  });
-  Name.init();
-</script>
-</body>
+      <script>
+         var Name = (function($) {
+           var $inputMateria = $('#materia'),
+             $btnAddMateria = $('#addMateria'),
+             $tableMaterias = $('#materias'),
+             $tdHoraInicial = $('#horaInicial'),
+             $tdHoraFinal = $('#horaFinal');
+         
+           var addMateria = function() {
+             var td = '<td>'+$inputMateria.val()+'</td>' +
+                      '<td>'+$tdHoraInicial.val()+'</td>' +
+                      '<td>'+$tdHoraFinal.val()+'</td>';
+         
+             $('<tr>')
+               .html(td)
+               .appendTo($tableMaterias);
+           }
+         
+           return {
+             init: function() {
+               $btnAddMateria.on('click', addMateria)
+             }
+           }
+         })(jQuery);
+         
+         $('.datetime').datetimepicker({
+           format: 'LT'
+         });
+         Name.init();
+      </script>
+   </body>
 </html>
