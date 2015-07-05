@@ -172,10 +172,63 @@ app.get('/disciplina/edit', ensureAuthenticated, function(req, res) {
   });
 });
 
-app.get('/disciplina/add', ensureAuthenticated, function(req, res) {
+app.post('/disciplina/add', ensureAuthenticated, function(req, res) {
+  console.log(req.param('horaFinal'));
+  dias = [];
+  if(req.param('segunda')){
+    dias.push({
+      dia: 'segunda',
+      horaInicial: req.param('horaInicial'),
+      horaFinal: req.param('horaFinal')
+    })
+  }
+  if(req.param('terca')){
+    dias.push({
+      dia: 'terça',
+      horaInicial: req.param('horaInicial'),
+      horaFinal: req.param('horaFinal')
+    })
+  }
+  if(req.param('quarta')){
+    dias.push({
+      dia: 'quarta',
+      horaInicial: req.param('horaInicial'),
+      horaFinal: req.param('horaFinal')
+    })
+  }
+  if(req.param('quinta')){
+    dias.push({
+      dia: 'quinta',
+      horaInicial: req.param('horaInicial'),
+      horaFinal: req.param('horaFinal')
+    })
+  }
+  if(req.param('sexta')){
+    dias.push({
+      dia: req.param('sexta'),
+      horaInicial: req.param('horaInicial'),
+      horaFinal: req.param('horaFinal')
+    })
+  }
+  if(req.param('sabado')){
+    dias.push({
+      dia: 'sabado',
+      horaInicial: req.param('horaInicial'),
+      horaFinal: req.param('horaFinal')
+    })
+  }
+  if(req.param('domingo')){
+    dias.push({
+      dia: 'domingo',
+      horaInicial: req.param('horaInicial'),
+      horaFinal: req.param('horaFinal')
+    })
+  }
+
   var disciplina = new Disciplina({
-    titulo: req.query.titulo,
-    userId: req.user.id
+    titulo: req.param('disciplina'),
+    userId: req.user.id,
+    dias: dias,
   });
 
   disciplina.save(function(err) {

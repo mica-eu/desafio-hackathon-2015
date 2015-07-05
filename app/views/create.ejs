@@ -25,6 +25,7 @@
             text-align: center;
             padding: 10px;
             overflow: hidden;
+            z-index:1000
 
         }
         #side-bar.out
@@ -113,12 +114,12 @@
 
             <div class="container-fluid centralizar">
 
-              <form class="form-horizontal">
+              <form class="form-horizontal" method="post" action="/disciplina/add">
                 <div class="container-fluid">
               	<div class="form-group">
                   <label class="col-sm-2 control-label" for="formGroupInputSmall">Disciplina</label>
                   <div class="col-sm-8">
-                    <select class="form-control">
+                    <select name="disciplina" class="form-control">
                       <option></option>
                       <option value="Português">Português</option>
                       <option value="Matemática">Matemática</option>
@@ -132,22 +133,11 @@
                   </div>
                 </div>
 
-                <div class="form-group form-group">
-                  <label class="col-sm-2 control-label" for="formGroupInputSmall">Matéria</label>
-                  <div class="container col-sm-8">
-                    <div class="input-group col-sm-12">
-                    <input id="materia" class="form-control" for="formGroupInputSmall" type="text" placeholder="Ex: Fatoração">
-                      <span class="input-group-btn">
-                        <button id="addMateria" type="button" class="btn btn-primary">+</button>
-                      </span>
-                    </div>
-                  </div>
-                </div>
                 <div class="col-sm-6 form-group form-group col-sm-12">
                   <label class="col-sm-4 control-label hr control-label" for="formGroupInputSmall">Horário Inicial</label>
                       <div class='col-sm-8'>
                               <div class='input-group date datetime'>
-                                  <input type='text' class="form-control" id="horaInicial" />
+                                  <input type='time' name="horaInicial" class="form-control" id="horaInicial" />
                                   <span class="input-group-addon">
                                       <span class="glyphicon glyphicon-time"></span>
                                   </span>
@@ -158,7 +148,7 @@
                   <label class="col-sm-4 control-label hr" for="formGroupInputSmall">Horário Final</label>
                       <div class='col-sm-8'>
                               <div class='input-group date datetime'>
-                                  <input type='text' class="form-control" id="horaFinal"/>
+                                  <input type='time' name="horaFinal" class="form-control" id="horaFinal"/>
                                   <span class="input-group-addon">
                                       <span class="glyphicon glyphicon-time"></span>
                                   </span>
@@ -166,74 +156,38 @@
                       </div>
                 </div>
                 <div class="btn-group col-sm-12" data-toggle="buttons">
-                  <label class="btn btn-primary">
-                    <input type="checkbox" autocomplete="off">SEG
+                  <label>
+                    <input type="checkbox" name="segunda" autocomplete="off">SEG
                   </label>
-                  <label class="btn btn-primary">
-                    <input type="checkbox" autocomplete="off">TER
+                  <label>
+                    <input type="checkbox" name="terca" autocomplete="off">TER
                   </label>
-                  <label class="btn btn-primary">
-                    <input type="checkbox" autocomplete="off">QUA
+                  <label>
+                    <input type="checkbox" name="quarta" autocomplete="off">QUA
                   </label>
-                  <label class="btn btn-primary">
-                    <input type="checkbox" autocomplete="off">QUI
+                  <label>
+                    <input type="checkbox" name="quinta" autocomplete="off">QUI
                   </label>
-                  <label class="btn btn-primary">
-                    <input type="checkbox" autocomplete="off">SEX
+                  <label>
+                    <input type="checkbox" name="sexta" autocomplete="off">SEX
                   </label>
-                  <label class="btn btn-primary">
-                    <input type="checkbox" autocomplete="off">SAB
+                  <label>
+                    <input type="checkbox" name="sabado" autocomplete="off">SAB
                   </label>
-                  <label class="btn btn-primary">
-                    <input type="checkbox" autocomplete="off">DOM
+                  <label>
+                    <input type="checkbox" name="domingo" autocomplete="off">DOM
                   </label>
                 </div>
-                    <div id="tabela" class="container col-md-12 form-group form-group">
-                  	   <table id="materias" class="table col-md-4 table-striped">
-                        <thead>
-                          <th>Matéria</th>
-                          <th>Hora Inicial</th>
-                          <th>Hora Final</th>
-                        </thead>
-                       </table>
-                   </div>
-
+                <hr>
                 <div class="col-sm-4 form-group form-group">
-                  <button id="cadastrar" type="button" class="btn btn-primary">Cadastrar</button>
+                  <hr>
+                  <button id="cadastrar" type="submit" class="btn btn-primary">Cadastrar</button>
                 </div>
                 </div>
               </form>
             </div>
 
           <script>
-            var Name = (function($) {
-              var $inputMateria = $('#materia'),
-                $btnAddMateria = $('#addMateria'),
-                $tableMaterias = $('#materias'),
-                $tdHoraInicial = $('#horaInicial'),
-                $tdHoraFinal = $('#horaFinal');
-
-              var addMateria = function() {
-                var td = '<td>'+$inputMateria.val()+'</td>' +
-                         '<td>'+$tdHoraInicial.val()+'</td>' +
-                         '<td>'+$tdHoraFinal.val()+'</td>';
-
-                $('<tr>')
-                  .html(td)
-                  .appendTo($tableMaterias);
-              }
-
-              return {
-                init: function() {
-                  $btnAddMateria.on('click', addMateria)
-                }
-              }
-            })(jQuery);
-
-            $('.datetime').datetimepicker({
-              format: 'LT'
-            });
-            Name.init();
           </script>
 
         </div>
