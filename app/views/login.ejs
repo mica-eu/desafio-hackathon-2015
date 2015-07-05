@@ -1,1 +1,82 @@
-<a href="/auth/facebook"><img src="login-with-facebook.png" width="154" height="22"></a>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, user-scalable=no">
+    <title>Login</title>
+
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
+    <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+
+    <style>
+        body {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            background: #f1f2f3;
+        }
+
+        .container {
+            position: relative;
+            top: 50%;
+            transform: translateY(-50%);
+            -webkit-transform: translateY(-50%);
+        }
+
+        .form-signin {
+            text-align: center;
+        }
+
+        .login {
+            font-family: 'billabong';
+            min-width: 139px;
+            margin: 0px 10px -10px 10px;
+            font-size: 4em;
+        }
+
+        .btn {
+            min-width: 139px;
+            margin: 10px;
+        }
+
+        .fa {
+            font-size: 2em;
+        }
+
+        .fa-book {
+            font-size: 10em;
+            min-width: 139px;
+            margin: 0 10px;
+            color: #13548C;
+        }
+
+        @font-face {
+            font-family: 'billabong';
+            src: url('font/billabong.eot');
+            src: url('font/billabong.eot?iefix') format('eot'),
+            url('font/billabong.woff') format('woff'),
+            url('font/billabong.ttf') format('truetype'),
+            url('font/billabong.svg#Billabong') format('svg');
+            font-weight: normal;
+            font-style: normal;
+        }
+
+    </style>
+</head>
+<body>
+<div class="container">
+
+    <form class="col-md-6 col-md-offset-3 form-signin">
+        <i class="fa fa-book"></i>
+
+        <h2 class="form-signin-heading login">Login</h2>
+        <a href="/auth/facebook" type="button" class="btn btn-primary btn-lg">
+            <i class="fa fa-facebook"></i>
+            <span>Facebook</span>
+        </a>
+    </form>
+</div>
+
+</body>
+</html>

@@ -1,23 +1,155 @@
 <!DOCTYPE html>
-<html>
-	<head>
-		<title>Passport-Facebook Example</title>
-	</head>
-	<body>
-		<% if (!user) { %>
-			<p>
-			<a href="/">Home</a> |
-			<a href="/login">Log In</a>
-			</p>
-		<% } else { %>
-			<p>
-			<a href="/">Home</a> |
-			<a href="/account">Account</a> |
-			<a href="/logout">Log Out</a>
-			</p>
-			<ul>
-				<li><a href="/disciplina">Disciplinas</a></li>
-			</ul>
-		<% } %>
-	</body>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, user-scalable=no">
+
+    <title>Home</title>
+    <link rel="stylesheet" href="bootstrap/dist/css/bootstrap.min.css">
+    <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+    <link href='http://fonts.googleapis.com/css?family=Quicksand:400,700' rel='stylesheet' type='text/css'>
+
+    <style type="text/css">
+        body
+        {success
+          font-family: Quicksand;
+          font-weight: 300;
+        }
+        #side-bar
+        {
+            position: absolute;
+            background: rgb(46, 109, 164);
+            width:60px;
+            height: 100%;
+            text-align: center;
+            padding: 10px;
+            overflow: hidden;
+
+        }
+        #side-bar.out
+        {
+            animation-name: exitSideBar;
+            animation-duration: 1s;
+        }
+        #side-bar:not(.active) div.item
+        {
+            display: none;
+        }
+        #side-bar.active
+        {
+            width: 200px;
+            animation-name: enterSideBar;
+            animation-duration: 1s;
+        }
+
+        @keyframes enterSideBar {
+            from {width:60px;}
+            to {width: 200px;}
+        }
+
+        @keyframes exitSideBar {
+            to {width:60px;}
+            from {width: 200px;}
+        }
+
+        #side-bar button
+        {
+            margin-bottom: 10px;
+        }
+
+        #side-bar div.item
+        {
+            background: rgba(255,255,255,.2);
+            line-height: 30px;
+            color:#FFF;
+        }
+
+        @media (max-width: 600px) {
+          .container.main {
+            margin-left: 70px;
+            margin-right: 10px;
+          }
+        }
+
+    </style>
+    <script type="text/javascript">
+        $(function(){
+            var $sideBar = $("#side-bar");
+            var $btnSideBar = $("#btn-side-bar");
+
+            $btnSideBar.on('click', function(){
+                if($sideBar.hasClass('active')){
+                    $sideBar.removeClass('active');
+                    $sideBar.addClass('out');
+                    return;
+                }
+                $sideBar.removeClass('out');
+                $sideBar.addClass('active');
+            });
+        });
+    </script>
+
+</head>
+<body>
+    <section id="side-bar" class="">
+        <div class="row">
+            <button id="btn-side-bar" class="btn btn-sm btn-default">
+                <i class="glyphicon glyphicon-menu-hamburger"></i>
+            </button>
+        </div>
+        <div class="row">
+            <div class="col-xs-12 item">Agenda</div>
+            <% for (var i = 0; i < disciplinas.length; i++) {%>
+              <div class"col-sx-12 item>
+                <a href="/disciplina/view/?id=<%= disciplinas[i]._id %>"><%= disciplinas[i].titulo %></a>
+              </div>
+            <% } %>
+
+        </div>
+    </section>
+
+    <div class="container main">
+
+        <div class="page-header">
+          <h1>Simbora?<br><small>25 dias pro enem</small></h1>
+        </div>
+
+        <div class="row">
+            <span>Ciencias da natureza</span>
+            <div class="progress">
+              <div class="progress-bar progress-bar-striped active" role="progressbar" aria-valuenow="45" aria-valuemin="0" aria-valuemax="100" style="width: 45%">
+                <span class="sr-only">45% Complete</span>
+              </div>
+            </div>
+            <span>Ciencias da terra</span>
+            <div class="progress">
+              <div class="progress-bar progress-bar-striped active" role="progressbar" aria-valuenow="45" aria-valuemin="0" aria-valuemax="100" style="width: 45%">
+                <span class="sr-only">45% Complete</span>
+              </div>
+            </div>
+            <span>Linguagens</span>
+            <div class="progress">
+              <div class="progress-bar progress-bar-striped active" role="progressbar" aria-valuenow="45" aria-valuemin="0" aria-valuemax="100" style="width: 45%">
+                <span class="sr-only">45% Complete</span>
+              </div>
+            </div>
+            <span>Matematica</span>
+            <div class="progress">
+              <div class="progress-bar progress-bar-striped active" role="progressbar" aria-valuenow="45" aria-valuemin="0" aria-valuemax="100" style="width: 45%">
+                <span class="sr-only">45% Complete</span>
+              </div>
+            </div>
+
+        </div>
+
+        <div class="row">
+            <div class="progress">
+              <div class="progress-bar progress-bar-success progress-bar-striped active" role="progressbar" aria-valuenow="45" aria-valuemin="0" aria-valuemax="100" style="width: 45%">
+                <span class="sr-only">45% Complete</span>
+              </div>
+            </div>
+        </div>
+    </div>
+</body>
 </html>
