@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, user-scalable=no">
+
+    <title>Home</title>
+    <link rel="stylesheet" href="node_modules/bootstrap/dist/css/bootstrap.min.css">
+    <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+
+    <style>
+        .cr {
+            text-align: right;
+        }
+
+        .cl {
+            text-align: left;
+        }
+
+        .cc {
+            text-align: center;
+        }
+
+        .glyphicon-user {
+            margin: 5px 0;
+            font-size: 4em;
+            color: #337ab7;
+            background: #ccc;
+            padding: 10px;
+        }
+
+        .user {
+            position: relative;
+            display: table-cell;
+            vertical-align: middle;
+            height: 86px;
+            margin: 5px 0;
+            padding: 0 10px;
+        }
+
+        .user p {
+            position: relative;
+            top: 50%;
+            -webkit-transform: translateY(-50%);
+            -ms-transform: translateY(-50%);
+            transform: translateY(-50%);
+            color: #337ab7;
+        }
+
+        .btn i {
+            font-size: 1.2em;
+        }
+
+        .menu {
+            max-width: 400px;
+            border: solid 1px #959595;
+            border-radius: 10px;
+            padding-bottom: 30px;
+            margin-top: 10px;
+        }
+
+        .menu-disciplinas::before {
+            position: relative;
+            margin-bottom: 30px;
+            top: 15px;
+            left: 15px;
+            font-size: 12px;
+            font-weight: 700;
+            color: #959595;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            content: "Disciplinas";
+        }
+
+        .menu-outros::before {
+            position: relative;
+            margin-bottom: 30px;
+            top: 15px;
+            left: 15px;
+            font-size: 12px;
+            font-weight: 700;
+            color: #959595;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            content: "Outros";
+        }
+
+        .menu-view::before {
+            position: relative;
+            margin-bottom: 30px;
+            top: 15px;
+            left: 15px;
+            font-size: 12px;
+            font-weight: 700;
+            color: #959595;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            content: "Atividades";
+        }
+
+        .font-bill {
+            font-family: 'billabong';
+            font-size: 1.2em;
+        }
+
+        @font-face {
+            font-family: 'billabong';
+            src: url('font/billabong.eot');
+            src: url('font/billabong.eot?iefix') format('eot'),
+            url('font/billabong.woff') format('woff'),
+            url('font/billabong.ttf') format('truetype'),
+            url('font/billabong.svg#Billabong') format('svg');
+            font-weight: normal;
+            font-style: normal;
+        }
+
+    </style>
+</head>
+<body>
+<div class="container">
+
+    <div class="row">
+        <div class="col-xs-3 col-sm-3 user cl" aria-hidden="true">
+            <span class="glyphicon glyphicon-user img-circle"></span>
+        </div>
+        <div class="col-xs-5 col-sm-5 user cc"><p>Faltam 25 dias para o ENEM!</p></div>
+        <div class="col-xs-4 col-sm-4 user cr"><p><a class="font-bill" href="#">Danilo Thiago</a></p></div>
+    </div>
+    <div class="container menu menu-disciplinas">
+        <button type="button" class="btn btn-primary btn-lg btn-block">
+            <i class="col-xs-2 col-sm-2 fa fa-pencil-square-o"></i>
+            <span class="col-xs-10 col-sm-10">Cadastra/Editar</span>
+        </button>
+        <button type="button" class="btn btn-primary btn-lg btn-block">
+            <i class="col-xs-2 col-sm-2 fa fa-eye"></i>
+            <span class="col-xs-10 col-sm-10">Visualizar Cadastradas</span>
+        </button>
+    </div>
+    <div class="container menu menu-outros">
+        <button type="button" class="btn btn-primary btn-lg btn-block">
+            <i class="col-xs-2 col-sm-2 fa fa-users"></i>
+            <span class="col-xs-10 col-sm-10">Contatos</span>
+        </button>
+    </div>
+    <div class="container menu menu-view">
+        <iframe src="#" style="width: 100%; height: 120px;"></iframe>
+    </div>
+
+</div>
+</body>
+</html>
