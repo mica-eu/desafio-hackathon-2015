@@ -32,7 +32,6 @@
     padding: 15px;
     margin: 0 auto;
     float: none !important;
-    height: 382px;
     background-color: #F00;
   }
 
@@ -49,11 +48,11 @@
 </head>
 <script src="node_modules/bootstrap/dist/js/bootstrap.min.js"></script>
 <body>
-  <div class="conteiner">
+  <div class="container-fluid">
     
     <form class="form-horizontal">
-
-    	<div class="form-group form-group">
+      <div class="container-fluid">
+    	<div class="form-group">
         <label class="col-sm-2 control-label" for="formGroupInputSmall">Disciplina</label>
         <div class="col-sm-8">
           <select class="form-control">
@@ -78,14 +77,15 @@
               <button id="addMateria" type="button" class="btn btn-primary">+</button>  
         </div>
         </div>
+      </div>
 
    <!--  		<div class="col-sm-2">
         	
       	</div>  -->
 
-      </div>
+      
       <div class="col-sm-6 form-group form-group">
-        <label class="col-sm-4 control-label hr" for="formGroupInputSmall">Horário Inicial</label>
+        <label class="col-sm-4 control-label hr control-label" for="formGroupInputSmall">Horário Inicial</label>
             <div class='col-sm-8'>
                     <div class='input-group date datetime'>
                         <input type='text' class="form-control" id="horaInicial" />
@@ -107,7 +107,7 @@
             </div>
       </div>
       <div>
-          <div id="tabela" class="container col-md-12">
+          <div id="tabela" class="container col-md-12 form-group form-group">
         	   <table id="materias" class="table col-md-4 table-striped">
               <thead>
                 <th>Matéria</th> 
@@ -117,8 +117,9 @@
              </table>
          </div>
       </div>    	
-      <div class="col-sm-4">
+      <div class="col-sm-4 form-group form-group">
         <button id="cadastrar" type="button" class="btn btn-primary">Cadastrar</button>
+      </div>
       </div>
     </form>
   </div>
