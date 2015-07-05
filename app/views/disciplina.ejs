@@ -1,0 +1,9 @@
+<ul>
+  <% for (var i = 0; i < disciplinas.length; i++) {%>
+    <li>
+      <a href="/disciplina/view/?id=<%= disciplinas[i]._id %>"><%= disciplinas[i].titulo %></a>
+      <a href="/disciplina/edit/?id=<%= disciplinas[i]._id %>">EDITAR</a>
+      <a href="/disciplina/remove/?id=<%= disciplinas[i]._id %>">REMOVER</a>
+    </li>
+  <% } %>
+</ul>
